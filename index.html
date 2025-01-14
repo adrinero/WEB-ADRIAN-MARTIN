@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrian Martin Jorge - Diseño de Producto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="images/AM BLANCO.png" alt="Logo Personal" class="header-logo">
+            </a>
+        <nav>
+            <ul>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#tfg">TFG</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="sobre-mi" class="fade-in">
+            <h1>Sobre Mí</h1>
+            <div class="profile">
+                <img src="images/ADRI-PERFIL.jpg" alt="Foto del creador">
+                <div class="typewriter-text" id="typewriter">
+                <p>Hola, soy estudiante en Diseño de Producto en UDIT. Mi pasión es crear soluciones innovadoras para mejorar la experiencia del usuario en productos cotidianos. Actualmente, estoy desarrollando un proyecto enfocado en el pádel.</p>
+            </div>
+        </div>
+        </section>
+        
+    </section>        
+        <section id="productos" class="fade-in">
+            <h1>Productos</h1>
+            <div class="product-grid">
+                <div class="product-item">
+                    <a href="tulipan.html">
+                    <div class="image-container">
+                        <img src="images/LAMPARA-TULIPAN.jpg" alt="TULIPÁN">
+                        <div class="overlay">
+                            <p class="title">TULIPÁN</p>
+                            <p class="subtexto">MOCKUP - Lámpara tulipán de mesa</p>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <a href="arpa.html">
+                    <div class="image-container">
+                        <img src="images/SILLA-ARPA.jpg" alt="ARPA">
+                        <div class="overlay">
+                            <p class="title">ARPA</p>
+                            <p class="subtexto">Arpa by Pilma - Madera mindi maciza.</p>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <a href="balance-bike.html">
+                    <div class="image-container">
+                        <img src="images/BALANCE-BIKE.jpg" alt="BALANCE-BIKE">
+                        <div class="overlay">
+                            <p class="title">BALANCE-BIKE</p>
+                            <p class="subtexto">UDIT by ADIDAS - Madera laminada.</p>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tfg" class="fade-in">
+            <h1>Trabajo Fin de Grado</h1>
+            <div class="tfg-grid">
+                <div class="tfg-item">
+                    <div class="image-container">
+                        <img src="images/PISTA-PADEL.jpg" alt="TFG Imagen 1">
+                        <div class="overlay">
+                            <p class="title">INNOVACIÓN E IMPLEMENTACIÓN</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tfg-item">
+                    <div class="image-container">
+                        <img src="images/PISTA-PADEL-LATERAL.jpg" alt="TFG Imagen 2">
+                        <div class="overlay">
+                            <p class="title">EMOCIÓN Y COMPETITIVIDAD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer id="contacto">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.387605187036!2d-3.572603984594837!3d40.73734917932938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41865a5c1b2d25%3A0xfcb2b5a61685f1aa!2sEl%20Molar%2C%2028760%20Madrid!5e0!3m2!1ses!2ses!4v1639076117231!5m2!1ses!2ses" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        
+            <div class="contact-details">
+                <h2>Contacto</h2>
+                <p>El Molar, Madrid</p>
+                <p>Email: <a href="mailto:adrianmartinjorge@gmail.com">adrianmartinjorge@gmail.com</a></p>
+                <p>Teléfono: <a href="tel:+34622619050">+34 622 619 050</a></p>
+                <p>Instagram: <a href="https://www.instagram.com/am.adrianmartin/" target="_blank">@am.adrianmartin</a></p>
+            </div>
+        </footer>
+        
+
+        
+
+     
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const targetSection = document.getElementById('sobre-mi');
+            const textElement = document.getElementById('typewriter').querySelector('p');
+            const text = textElement.innerText;
+            let index = 0;
+    
+            textElement.innerText = '';  // Vaciar el texto inicial
+    
+            function typeWriterEffect() {
+                if (index < text.length) {
+                    textElement.innerText += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriterEffect, 50);  // Velocidad de escritura ajustable
+                }
+            }
+    
+            // Detectar si la sección está visible
+            function isSectionVisible() {
+                const sectionPosition = targetSection.getBoundingClientRect().top;
+                return sectionPosition < window.innerHeight && sectionPosition > 0;
+            }
+    
+            // Ejecutar el efecto de escritura al visualizar la sección
+            window.addEventListener('scroll', function () {
+                if (isSectionVisible() && index === 0) {
+                    typeWriterEffect();
+                }
+            });
+        });
+    </script>    
+</body>
+</html>
